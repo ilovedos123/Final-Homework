@@ -12,7 +12,7 @@ string[] arr = words.Split(';');
 
 int val = 3; //максимальное количество символов в строке, для попадания в итоговый массив
 
-
+GetFinalArray(arr, val, GetSize(arr,val));
 
 int GetSize(string [] array, int value) //метод для расчета размера итогового массива
 {
@@ -27,3 +27,17 @@ if (array[i].Length <= value)
  return size;
 }
 
+void GetFinalArray (string [] array, int value, int size) //метод для создания и вывода итогового массива
+{
+string[] finalArray = new string[size];
+int count = 0;
+for (int j = 0; j < array.Length; j++)
+{
+    if (arr[j].Length <= value)
+    {
+        finalArray[count] = array[j];
+        count++;
+    }
+}
+Console.WriteLine($"[{string.Join(",",finalArray)}]");
+}
